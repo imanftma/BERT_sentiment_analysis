@@ -1,0 +1,203 @@
+---
+title: "Pandemic Afflicted Racist Tweets Analysis"
+format:
+  html:
+    code-fold: true
+    theme: flatly
+  
+jupyter: python3
+---
+### Assessment 2 :Detailed Data Assessment
+### Group No : 8
+
+|   Name |    ID   | 
+|:------:|:------:|:------:|
+|   Nikhil Joshi   |  0780808  |
+|   Khyati Lohe    |  0779212  |
+|   Tanvi Pal      |  0779654  |
+|   Raman Keshari  |  0773376  |
+|   Iman Fatima    |  0784241  |  
+
+[Link for Group 8's Github](https://github.com/CapstoneProject-group8/Assignment2)
+
+
+## Data Source
+
+* Data retrieved from twitter using **snscrape library**
+* Date range to be used is from January 2017 to May 2022
+* Specific hashtags were used (details below)
+* Finally, the csv's were combined using the code listed below:
++ *Details of Hastags::*
+  i) Hashtags related to Covid: (racism,chinesevirus,wuhanvirus,commieflu) 
+  ii) Non Covid Hashtags: (racism,immigrant)
+
+```{python}
+import numpy as np 
+import pandas as pd 
+import os
+import seaborn as sns
+import itertools
+import snscrape.modules.twitter as sntwitter
+```
+
+*Importing all required libraries*
+
+```{python}
+# df1=pd.read_csv('file1.csv')
+# df2=pd.read_csv('wuhanvirus.csv')
+# df3=pd.read_csv('commieflu.csv')
+# df4=pd.read_csv('immigrant1.csv')
+# df5=pd.read_csv('immigrant2.csv')
+# df6=pd.read_csv('racism1.csv')
+# df7=pd.read_csv('racism2.csv')
+# finaldf1=pd.concat([df1, df2], ignore_index = True)
+# finaldf2=pd.concat([df3, df4], ignore_index = True)
+# finaldf3=pd.concat([df5, df6], ignore_index = True)
+# df=pd.concat([finaldf1, finaldf2,finaldf3,df7], ignore_index = True)
+# df.to_csv('tweetfinal.csv',index=False)
+```
+
+- *Reading all the required csv files and concatinating them all to combine then in a single file*
+- *For the sake of generating the QMD file, we have commented out the above code as we dont need to execute it only once to generate raw data*
+
+## Data Quality
+*In the raw format, the data contains 10 fields*
+
+```{python}
+tweets = pd.read_csv("tweetfinal1.csv")
+tweets.info()
+```
+
+*The decsription for each of the fields is as follows:*
+
+| Field      | Description |
+| ----------- | ----------- |
+|  Date time  | The date tweet was created on|
+| Tweet Id  | unique ID for every tweet, which are based on time, instead of being sequential|
+|   Text    |  the tweet|
+|   Username | The username of the person who tweeted|
+|   Location | Location of the user|
+|   Retweet  |Retweet count for the tweet|
+|   Like      | Likes count for the tweet|
+|   Place     |Latitude and longitude coordinates of the location of user| 
+|   Lang      |Language of the tweet|
+|   Hashtags   | Hashtags used in the tweet|
+
+
+*Glimpse of how data looks:*
+
+```{python}
+tweets.head(10)
+```
+
+*Checking the number of unique values in each field/series in the data*
+
+```{python }
+print ("\nUnique values : \n",tweets.nunique())
+```
+
+*Looking for null values:*
+
+```{python}
+tweets.isnull().sum()
+```
+
+
+- Tweet 'Text' has a lot of non required data like hyperlinks and symbols which will be cleaned during pre-processing later on in our analysis. This will be the basis of the Natural Language Processing methods.
+- Its interesting to note that some columns do contain relevent information,however, not enough for analytics.For example *Place has 96% null values* whereas *Location has 26% null* Location is, however, user defined,therefore it has no specific defined datatype.
+
+
+## Data Ethics Assessment
+#### A. Data Collection
+ - [X] **A.1 Informed consent**: The data collected are public tweets and as per Twitter policy, public tweets are not protected and users are aware that they can be used for purpose like research/analysis etc..
+ - [X] **A.2 Limit PII exposure**: 
+ There are usernames in the data,however, in most of the cases, they are not the real names of people. If needed, they can be anonymized or removed. Also, any other identifiable information is not collected for the purpose of this project.
+ - [X] **A.3 Downstream bias mitigation**: Data is collected by searching for hastags which do not target any specific community but are used as a search criteria to find patterns.
+
+### B. Data Storage
+ - [X] **B.1 Data security**:Data will not be shared to any third party, apart from professors and the members of our project group.
+ - [X] **B.2 Right to be forgotten**:There is no personal identifiable information in the dataset that is required to be removed.
+ - [X] **B.3 Data retention plan**: There is no need for deletion as the data is not confidential.
+
+### C. Analysis
+ - [X] **C.1 Honest representation**: Yes, visualizations, summary statistics, and reports designed shall honestly represent the underlying data
+ - [X] **C.2 Privacy in analysis**:  Personal Identifibale Information is not collected, so there are no concerns pertaining to the privacy of the data.
+ - [X] **C.3 Auditability**: Yes, all subsequent analytical processes will be documented that can be referred to in the future, if needed.
+
+### D. Modeling
+ - [X] **D.1 Proxy discrimination**:Textual data will be processed to perform NLP, resulting in words that may be dicriminatory against groups,however, this is inline with our project's research topic.
+ - [X] **D.2 Fairness across groups**: The model employed will be used on text and not on data of a specific group.
+ - [X] **D.3 Explainability**: Yes, the model will perform sentimental analysis on text which is human-readable.
+ - [X] **D.4 Communicate bias**: There are no stakeholders that will be directly impacted as the objective is research.
+
+### E. Deployment
+ - [X] **E.1 Redress**: The results will not pose any threat.   
+ - [X] **E.2 Roll back**: We will not be deploying the model.
+ - [X] **E.3 Unintended use**: Only the group memebers and the instructor will have access to the model as access is restricted.
+
+## Data Fitness
+- [X] **E.1 Raw Data**: The raw data can't be considered fit/ready for analytics without being pre processed.
+- [X] **E.2 Data Info**: The data does contain non required information like null values/symbols/links etc.
+
+*Data Science Ethics Checklist generated with [deon](http://deon.drivendata.org).*
+
+
+## EDA
+
+#### 1. Exploring "Language"
+
+```{python}
+# Getting the count of top 5 languages for tweets
+language_count = tweets["Lang"].value_counts().nlargest(5)
+print(language_count)
+```
+
+*The above information shows the total count of each language*
+
+```{python}
+sns.countplot(x="Lang",data=tweets,order=tweets.Lang.value_counts().iloc[:5].index)
+```
+
+*In the plot above we notice that the tweets have been extracted primarily in "en" language,i.e., English.*
+
+#### 2. Exploring "Place"
+
+```{python}
+tweets['Place'].isna().sum()
+```
+
+*We observe majortiy of missing/na values in this column and hence we wont use this column*
+
+#### 3. Exploring "Basic Tweets Information"
+
+```{python}
+print("Total tweets are: ", tweets['Text'].count(),end='\n')
+print("Retweeted Tweets are: ", tweets['Retweet'].sum())
+```
+
+*A total count of all the tweets vs the tweets that were retweeted*
+
+#### 4. Top 10 Retweets
+
+```{python}
+retweetsdf=tweets.sort_values('Retweet',ascending=False)
+retweetsdf['Text']
+```
+
+*In the code above, we consider number of retweets as a criteria to see if a specific tweet has been most retweetedn one. Using this criteria, we display Top 10 tweet text*
+
+#### 5. Checking the Yearly Distribution of Tweets
+
+```{python}
+tweetdate_data=tweets['Datetime'].str[:4]
+temp_df = pd.DataFrame(tweetdate_data)
+```
+
+*1. We seperate "Year" from the given "Datetime" column in our raw data using str function which only gets first 4 numbers in that series,i.e., 4 digits of the year*
+*2. We put this seperated value in a temporary data frame called "temp_df" so that we can plot a graph using this data*
+
+```{python}
+sns.countplot(x='Datetime',data=temp_df)
+```
+
+*As discussed in the point above, we have plotted the countplot from seaborn library to display year wise count of tweets in our raw data*

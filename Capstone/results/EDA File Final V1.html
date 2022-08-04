@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.504">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>eda-file-final-v1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="EDA File Final V1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="EDA File Final V1_files/libs/quarto-html/quarto.js"></script>
+<script src="EDA File Final V1_files/libs/quarto-html/popper.min.js"></script>
+<script src="EDA File Final V1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="EDA File Final V1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="EDA File Final V1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="EDA File Final V1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="EDA File Final V1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="EDA File Final V1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="EDA File Final V1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns<span class="op">;</span> sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">'darkgrid'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud, STOPWORDS</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># os.chdir('c:\\Users\\Owner\\Desktop\\Sem4\\Capstone\\Project\\')</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># os.getcwd()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="topics-in-eda" class="level1">
+<h1><strong><em>Topics in EDA</em></strong></h1>
+<section id="basic-information-about-data" class="level4">
+<h4 class="anchored" data-anchor-id="basic-information-about-data">1. Basic Information about Data</h4>
+</section>
+<section id="understanding-the-data-and-removing-unwanted" class="level4">
+<h4 class="anchored" data-anchor-id="understanding-the-data-and-removing-unwanted">2. Understanding the data and removing unwanted</h4>
+</section>
+<section id="analysis-on-text" class="level4">
+<h4 class="anchored" data-anchor-id="analysis-on-text">3. Analysis on “Text”</h4>
+<pre><code>    - Hashtag Analysis - Textual
+    - Tweets Analysis - Timeline</code></pre>
+</section>
+<section id="analysis-on-location-field" class="level4">
+<h4 class="anchored" data-anchor-id="analysis-on-location-field">4. Analysis on “Location” field</h4>
+</section>
+<section id="reading-the-scrapped-data-and-assigning-into-dataframe-called-tweets" class="level4">
+<h4 class="anchored" data-anchor-id="reading-the-scrapped-data-and-assigning-into-dataframe-called-tweets"><strong><em>Reading the scrapped data and assigning into dataframe called “tweets”</em></strong></h4>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tweets <span class="op">=</span> pd.read_csv(<span class="st">"/Users/nikhiljoshi/Capstone Project/EDA Files/tweetfinal1.csv"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#tweets= pd.read_csv("C:\\Users\\W0780808\\Downloads\\tweetfinal1.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="basic-information-about-data-1" class="level4">
+<h4 class="anchored" data-anchor-id="basic-information-about-data-1">1. Basic Information about Data</h4>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tweets.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 431323 entries, 0 to 431322
+Data columns (total 10 columns):
+ #   Column    Non-Null Count   Dtype  
+---  ------    --------------   -----  
+ 0   Datetime  431323 non-null  object 
+ 1   Tweet Id  431323 non-null  float64
+ 2   Text      431323 non-null  object 
+ 3   Username  431322 non-null  object 
+ 4   Location  325373 non-null  object 
+ 5   Retweet   431322 non-null  float64
+ 6   Like      431322 non-null  float64
+ 7   Place     14685 non-null   object 
+ 8   Lang      431322 non-null  object 
+ 9   Hashtags  431187 non-null  object 
+dtypes: float64(3), object(7)
+memory usage: 32.9+ MB</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tweets.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Datetime</th>
+      <th>Tweet Id</th>
+      <th>Text</th>
+      <th>Username</th>
+      <th>Location</th>
+      <th>Retweet</th>
+      <th>Like</th>
+      <th>Place</th>
+      <th>Lang</th>
+      <th>Hashtags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-05-30 23:49:53+00:00</td>
+      <td>1.530000e+18</td>
+      <td>Dance Events at #USAAF2022 #GenerationsOfPower...</td>
+      <td>APICC_SF</td>
+      <td>San Francisco</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['USAAF2022', 'GenerationsOfPower', 'Dance', '...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-05-30 23:16:28+00:00</td>
+      <td>1.530000e+18</td>
+      <td>Streaming AAPI snack stream with @shotaro_VT i...</td>
+      <td>ToonahVT</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['aapi', 'vtuber', 'ENvtuber', 'VTuberUprising...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-05-30 23:05:53+00:00</td>
+      <td>1.530000e+18</td>
+      <td>#AAPI month was a great reminder that our stor...</td>
+      <td>kristykim1015</td>
+      <td>san francisco</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['AAPI']</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-05-30 23:00:44+00:00</td>
+      <td>1.530000e+18</td>
+      <td>#AAPI panic moment: dinner time and weâre ne...</td>
+      <td>RVAcrystal</td>
+      <td>Richmond, VA</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['AAPI']</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-05-30 23:00:17+00:00</td>
+      <td>1.530000e+18</td>
+      <td>With #AAPI Heritage Month coming to an end che...</td>
+      <td>duslmp</td>
+      <td>River Forest, IL</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['AAPI']</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"Rows     : "</span> ,tweets.shape[<span class="dv">0</span>])</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"Columns  : "</span> ,tweets.shape[<span class="dv">1</span>])</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"</span><span class="ch">\n</span><span class="st">Unique values :  </span><span class="ch">\n</span><span class="st">"</span>,tweets.nunique())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows     :  431323
+Columns  :  10
+
+Unique values :  
+ Datetime    415771
+Tweet Id    319521
+Text        406287
+Username    124233
+Location     32936
+Retweet        475
+Like           900
+Place         3838
+Lang            62
+Hashtags    211952
+dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tweets.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>Datetime         0
+Tweet Id         0
+Text             0
+Username         1
+Location    105950
+Retweet          1
+Like             1
+Place       416638
+Lang             1
+Hashtags       136
+dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="understanding-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="understanding-the-data">2. Understanding the Data</h4>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting the count of top 5 languages for tweets</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>language_count <span class="op">=</span> tweets[<span class="st">"Lang"</span>].value_counts().nlargest(<span class="dv">5</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(language_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>en     370045
+und     32528
+hi       5465
+es       3556
+ja       2621
+Name: Lang, dtype: int64</code></pre>
+</div>
+</div>
+</section>
+<section id="dropping-columns" class="level4">
+<h4 class="anchored" data-anchor-id="dropping-columns">2.1) Dropping Columns</h4>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#dropping duplicate tweets on Tweet ID</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_result<span class="op">=</span>tweets.drop_duplicates([<span class="st">"Tweet Id"</span>],keep<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Dropping duplicate tweet texts</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_result<span class="op">=</span>tweets.drop_duplicates([<span class="st">"Text"</span>],keep<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Removing all languages except english</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_result.drop(df_result[df_result[<span class="st">'Lang'</span>] <span class="op">!=</span><span class="st">'en'</span>].index, inplace <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df_result.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/57/tx7rlqy15q167jrtg5rd5p_40000gn/T/ipykernel_18561/2860842350.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_result.drop(df_result[df_result['Lang'] !='en'].index, inplace = True)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Datetime</th>
+      <th>Tweet Id</th>
+      <th>Text</th>
+      <th>Username</th>
+      <th>Location</th>
+      <th>Retweet</th>
+      <th>Like</th>
+      <th>Place</th>
+      <th>Lang</th>
+      <th>Hashtags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-05-30 23:49:53+00:00</td>
+      <td>1.530000e+18</td>
+      <td>Dance Events at #USAAF2022 #GenerationsOfPower...</td>
+      <td>APICC_SF</td>
+      <td>San Francisco</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['USAAF2022', 'GenerationsOfPower', 'Dance', '...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-05-30 23:16:28+00:00</td>
+      <td>1.530000e+18</td>
+      <td>Streaming AAPI snack stream with @shotaro_VT i...</td>
+      <td>ToonahVT</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['aapi', 'vtuber', 'ENvtuber', 'VTuberUprising...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-05-30 23:05:53+00:00</td>
+      <td>1.530000e+18</td>
+      <td>#AAPI month was a great reminder that our stor...</td>
+      <td>kristykim1015</td>
+      <td>san francisco</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['AAPI']</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-05-30 23:00:44+00:00</td>
+      <td>1.530000e+18</td>
+      <td>#AAPI panic moment: dinner time and weâre ne...</td>
+      <td>RVAcrystal</td>
+      <td>Richmond, VA</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['AAPI']</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-05-30 23:00:17+00:00</td>
+      <td>1.530000e+18</td>
+      <td>With #AAPI Heritage Month coming to an end che...</td>
+      <td>duslmp</td>
+      <td>River Forest, IL</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['AAPI']</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>341055</th>
+      <td>2019-10-11 13:44:47+00:00</td>
+      <td>1.182653e+18</td>
+      <td>Every minute, a white politician in some US ci...</td>
+      <td>UrbanPolicy</td>
+      <td>St Louis, MO</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['inequality', 'racism', 'racialwealthgap']</td>
+    </tr>
+    <tr>
+      <th>341056</th>
+      <td>2019-10-11 13:44:19+00:00</td>
+      <td>1.182653e+18</td>
+      <td>Our special guest has arrived at the Emirates ...</td>
+      <td>SRTRC_England</td>
+      <td>United Kingdom</td>
+      <td>38.0</td>
+      <td>93.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['racism', 'hatecrime']</td>
+    </tr>
+    <tr>
+      <th>341057</th>
+      <td>2019-10-11 13:44:12+00:00</td>
+      <td>1.182653e+18</td>
+      <td>@dcpoll #Trump runs on a platform of #hate #ra...</td>
+      <td>gswickes</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Coordinates(longitude=-106.7916912, latitude=3...</td>
+      <td>en</td>
+      <td>['Trump', 'hate', 'racism', 'greed', 'lies', '...</td>
+    </tr>
+    <tr>
+      <th>341058</th>
+      <td>2019-10-11 13:43:42+00:00</td>
+      <td>1.182653e+18</td>
+      <td>“Victims vs. Perpetrators”- The Dehumanization...</td>
+      <td>ForgetWinnetou</td>
+      <td>Berlin, Germany</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['Halle', 'Shooting', 'Antisemitism', 'Racism'...</td>
+    </tr>
+    <tr>
+      <th>341059</th>
+      <td>2019-10-11 13:42:31+00:00</td>
+      <td>1.182653e+18</td>
+      <td>Why Trump relies so much on racist stereotypes...</td>
+      <td>bohemiotx</td>
+      <td>Tyler, TX</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>en</td>
+      <td>['racism', 'DumpTrump']</td>
+    </tr>
+  </tbody>
+</table>
+<p>341060 rows × 10 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#dropping user name and language </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_result<span class="op">=</span>df_result.drop([<span class="st">'Username'</span>,<span class="st">'Lang'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df_result.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Datetime</th>
+      <th>Tweet Id</th>
+      <th>Text</th>
+      <th>Location</th>
+      <th>Retweet</th>
+      <th>Like</th>
+      <th>Place</th>
+      <th>Hashtags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-05-30 23:49:53+00:00</td>
+      <td>1.530000e+18</td>
+      <td>Dance Events at #USAAF2022 #GenerationsOfPower...</td>
+      <td>San Francisco</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>['USAAF2022', 'GenerationsOfPower', 'Dance', '...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-05-30 23:16:28+00:00</td>
+      <td>1.530000e+18</td>
+      <td>Streaming AAPI snack stream with @shotaro_VT i...</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>['aapi', 'vtuber', 'ENvtuber', 'VTuberUprising...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-05-30 23:05:53+00:00</td>
+      <td>1.530000e+18</td>
+      <td>#AAPI month was a great reminder that our stor...</td>
+      <td>san francisco</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>['AAPI']</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-05-30 23:00:44+00:00</td>
+      <td>1.530000e+18</td>
+      <td>#AAPI panic moment: dinner time and weâre ne...</td>
+      <td>Richmond, VA</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>['AAPI']</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-05-30 23:00:17+00:00</td>
+      <td>1.530000e+18</td>
+      <td>With #AAPI Heritage Month coming to an end che...</td>
+      <td>River Forest, IL</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>['AAPI']</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>341055</th>
+      <td>2019-10-11 13:44:47+00:00</td>
+      <td>1.182653e+18</td>
+      <td>Every minute, a white politician in some US ci...</td>
+      <td>St Louis, MO</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>['inequality', 'racism', 'racialwealthgap']</td>
+    </tr>
+    <tr>
+      <th>341056</th>
+      <td>2019-10-11 13:44:19+00:00</td>
+      <td>1.182653e+18</td>
+      <td>Our special guest has arrived at the Emirates ...</td>
+      <td>United Kingdom</td>
+      <td>38.0</td>
+      <td>93.0</td>
+      <td>NaN</td>
+      <td>['racism', 'hatecrime']</td>
+    </tr>
+    <tr>
+      <th>341057</th>
+      <td>2019-10-11 13:44:12+00:00</td>
+      <td>1.182653e+18</td>
+      <td>@dcpoll #Trump runs on a platform of #hate #ra...</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Coordinates(longitude=-106.7916912, latitude=3...</td>
+      <td>['Trump', 'hate', 'racism', 'greed', 'lies', '...</td>
+    </tr>
+    <tr>
+      <th>341058</th>
+      <td>2019-10-11 13:43:42+00:00</td>
+      <td>1.182653e+18</td>
+      <td>“Victims vs. Perpetrators”- The Dehumanization...</td>
+      <td>Berlin, Germany</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>['Halle', 'Shooting', 'Antisemitism', 'Racism'...</td>
+    </tr>
+    <tr>
+      <th>341059</th>
+      <td>2019-10-11 13:42:31+00:00</td>
+      <td>1.182653e+18</td>
+      <td>Why Trump relies so much on racist stereotypes...</td>
+      <td>Tyler, TX</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>['racism', 'DumpTrump']</td>
+    </tr>
+  </tbody>
+</table>
+<p>341060 rows × 8 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="formatting-datetime-columns-for-further-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="formatting-datetime-columns-for-further-analysis">2.2) Formatting Date/Time Columns for further analysis</h4>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df_result[<span class="st">'Datetime'</span>] <span class="op">=</span> df_result[<span class="st">'Datetime'</span>].astype(<span class="st">'datetime64'</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df_result<span class="op">=</span>df_result.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hashtag-analysis---textual" class="level4">
+<h4 class="anchored" data-anchor-id="hashtag-analysis---textual">3. Hashtag Analysis - Textual</h4>
+<p>3.1) Basic Textual Analysis and dropping unwanted column</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing unwnated data in Tweets columns and converting every text to lower case</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_result[<span class="st">'new_Hashtags'</span>] <span class="op">=</span> [re.sub(<span class="vs">r'[^\w\s]'</span>,<span class="st">''</span>, <span class="bu">str</span>(df_result[<span class="st">'Hashtags'</span>][i])) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span> (<span class="dv">0</span>, <span class="bu">len</span>(df_result))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_result[<span class="st">'new_Hashtags'</span>]<span class="op">=</span>[df_result[<span class="st">'new_Hashtags'</span>][i].lower() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span> (<span class="dv">0</span>, <span class="bu">len</span>(df_result))]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df_result[<span class="st">'new_Hashtags'</span>]</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df_result<span class="op">=</span>df_result.drop([<span class="st">'Hashtags'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>df_result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Datetime</th>
+      <th>Tweet Id</th>
+      <th>Text</th>
+      <th>Location</th>
+      <th>Retweet</th>
+      <th>Like</th>
+      <th>Place</th>
+      <th>new_Hashtags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-05-30 23:49:53</td>
+      <td>1.530000e+18</td>
+      <td>Dance Events at #USAAF2022 #GenerationsOfPower...</td>
+      <td>San Francisco</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>usaaf2022 generationsofpower dance movement co...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-05-30 23:16:28</td>
+      <td>1.530000e+18</td>
+      <td>Streaming AAPI snack stream with @shotaro_VT i...</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>aapi vtuber envtuber vtuberuprising chocnut</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-05-30 23:05:53</td>
+      <td>1.530000e+18</td>
+      <td>#AAPI month was a great reminder that our stor...</td>
+      <td>san francisco</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>aapi</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-05-30 23:00:44</td>
+      <td>1.530000e+18</td>
+      <td>#AAPI panic moment: dinner time and weâre ne...</td>
+      <td>Richmond, VA</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>aapi</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-05-30 23:00:17</td>
+      <td>1.530000e+18</td>
+      <td>With #AAPI Heritage Month coming to an end che...</td>
+      <td>River Forest, IL</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>aapi</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>341055</th>
+      <td>2019-10-11 13:44:47</td>
+      <td>1.182653e+18</td>
+      <td>Every minute, a white politician in some US ci...</td>
+      <td>St Louis, MO</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>inequality racism racialwealthgap</td>
+    </tr>
+    <tr>
+      <th>341056</th>
+      <td>2019-10-11 13:44:19</td>
+      <td>1.182653e+18</td>
+      <td>Our special guest has arrived at the Emirates ...</td>
+      <td>United Kingdom</td>
+      <td>38.0</td>
+      <td>93.0</td>
+      <td>NaN</td>
+      <td>racism hatecrime</td>
+    </tr>
+    <tr>
+      <th>341057</th>
+      <td>2019-10-11 13:44:12</td>
+      <td>1.182653e+18</td>
+      <td>@dcpoll #Trump runs on a platform of #hate #ra...</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>Coordinates(longitude=-106.7916912, latitude=3...</td>
+      <td>trump hate racism greed lies america putinspuppet</td>
+    </tr>
+    <tr>
+      <th>341058</th>
+      <td>2019-10-11 13:43:42</td>
+      <td>1.182653e+18</td>
+      <td>“Victims vs. Perpetrators”- The Dehumanization...</td>
+      <td>Berlin, Germany</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>halle shooting antisemitism racism germany</td>
+    </tr>
+    <tr>
+      <th>341059</th>
+      <td>2019-10-11 13:42:31</td>
+      <td>1.182653e+18</td>
+      <td>Why Trump relies so much on racist stereotypes...</td>
+      <td>Tyler, TX</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>racism dumptrump</td>
+    </tr>
+  </tbody>
+</table>
+<p>341060 rows × 8 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sns.histplot([<span class="bu">len</span>(s) <span class="cf">for</span> s <span class="kw">in</span> df_result.new_Hashtags], bins<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Hashtags Length'</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA%20File%20Final%20V1_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="top-5-hashtags" class="level3">
+<h3 class="anchored" data-anchor-id="top-5-hashtags">Top 5 Hashtags</h3>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>hashtags<span class="op">=</span>df_result.new_Hashtags.value_counts().iloc[:<span class="dv">5</span>].index</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>hashtags<span class="op">=</span>hashtags.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plot-of-top-5-hashtags" class="level3">
+<h3 class="anchored" data-anchor-id="plot-of-top-5-hashtags">Plot of Top 5 Hashtags</h3>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.countplot(x<span class="op">=</span><span class="st">"new_Hashtags"</span>, data<span class="op">=</span>df_result,order<span class="op">=</span>hashtags)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA%20File%20Final%20V1_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="tweets-analysis---timeline" class="level4">
+<h4 class="anchored" data-anchor-id="tweets-analysis---timeline">3.2) Tweets Analysis - Timeline</h4>
+</section>
+</section>
+<section id="yearly-tweets" class="level2">
+<h2 class="anchored" data-anchor-id="yearly-tweets">Yearly Tweets</h2>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_result_y <span class="op">=</span> df_result.set_index(<span class="st">'Datetime'</span>)[<span class="st">'Tweet Id'</span>].resample(<span class="st">'Y'</span>).nunique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pd.DataFrame(df_result_y.values).plot(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    grid<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">11</span>,<span class="dv">7</span>),</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Tweets Over Time'</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Overall Tweets'</span>)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>plt.xticks(</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">range</span>(<span class="bu">len</span>(df_result_y.index)), </span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    [x.strftime(<span class="st">'%Y'</span>) <span class="cf">for</span> x <span class="kw">in</span> df_result_y.index], </span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    rotation<span class="op">=</span><span class="dv">47</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA%20File%20Final%20V1_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="tweets-for-top-5-hashtags-yearly" class="level2">
+<h2 class="anchored" data-anchor-id="tweets-for-top-5-hashtags-yearly">Tweets for Top 5 hashtags yearly</h2>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>common_hashtags<span class="op">=</span>df_result[<span class="st">'new_Hashtags'</span>].value_counts()[:<span class="dv">10</span>].rename_axis(<span class="st">'Common Hashtags'</span>).reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.treemap(common_hashtags, path<span class="op">=</span>[<span class="st">'Common Hashtags'</span>], values<span class="op">=</span><span class="st">'count'</span>,title<span class="op">=</span><span class="st">'10 Most Common Hashtags'</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/nikhiljoshi/miniforge3/envs/mlp/lib/python3.8/site-packages/plotly/express/_core.py:1637: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_all_trees = df_all_trees.append(df_tree, ignore_index=True)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>temp<span class="op">=</span>df_result[df_result[<span class="st">'new_Hashtags'</span>].isin(hashtags)]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>temp[<span class="st">'year'</span>]<span class="op">=</span>temp[<span class="st">'Datetime'</span>].dt.year</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>temp3<span class="op">=</span>pd.DataFrame(temp.groupby([<span class="st">'new_Hashtags'</span>,<span class="st">'year'</span>]).size()).reset_index()</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>temp3.columns<span class="op">=</span>[<span class="st">'Hashtags'</span>,<span class="st">'Year'</span>,<span class="st">'Count'</span>]</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>temp3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/57/tx7rlqy15q167jrtg5rd5p_40000gn/T/ipykernel_18561/2698384573.py:2: SettingWithCopyWarning:
+
+
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Hashtags</th>
+      <th>Year</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>aapi</td>
+      <td>2017</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>aapi</td>
+      <td>2018</td>
+      <td>3783</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>aapi</td>
+      <td>2019</td>
+      <td>2962</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>aapi</td>
+      <td>2020</td>
+      <td>2539</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>aapi</td>
+      <td>2021</td>
+      <td>10172</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>aapi</td>
+      <td>2022</td>
+      <td>3024</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>asian aapi</td>
+      <td>2017</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>asian aapi</td>
+      <td>2018</td>
+      <td>976</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>asian aapi</td>
+      <td>2019</td>
+      <td>445</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>asian aapi</td>
+      <td>2020</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>asian aapi</td>
+      <td>2021</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>asian aapi</td>
+      <td>2022</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>chinesevirus</td>
+      <td>2020</td>
+      <td>15676</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>chinesevirus</td>
+      <td>2021</td>
+      <td>9824</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>chinesevirus</td>
+      <td>2022</td>
+      <td>667</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>immigrant</td>
+      <td>2017</td>
+      <td>4653</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>immigrant</td>
+      <td>2018</td>
+      <td>3634</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>immigrant</td>
+      <td>2019</td>
+      <td>1781</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>immigrant</td>
+      <td>2020</td>
+      <td>1458</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>immigrant</td>
+      <td>2021</td>
+      <td>994</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>immigrant</td>
+      <td>2022</td>
+      <td>363</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>wuhanvirus</td>
+      <td>2020</td>
+      <td>11669</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>wuhanvirus</td>
+      <td>2021</td>
+      <td>6469</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>wuhanvirus</td>
+      <td>2022</td>
+      <td>884</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting the above table using Barpolot</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">8</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span>temp3[<span class="st">'Hashtags'</span>],y<span class="op">=</span>temp3[<span class="st">'Count'</span>],hue<span class="op">=</span>temp3[<span class="st">'Year'</span>])</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA%20File%20Final%20V1_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="month-year-tweets" class="level2">
+<h2 class="anchored" data-anchor-id="month-year-tweets">Month-Year Tweets</h2>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df_result_m <span class="op">=</span> df_result.set_index(<span class="st">'Datetime'</span>)[<span class="st">'Tweet Id'</span>].resample(<span class="st">'M'</span>).nunique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pd.DataFrame(df_result_m.values).plot(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    grid<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">10</span>),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">False</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'date'</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'number of tweets'</span>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Total Number of Tweets Over Time'</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>plt.xticks(</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">range</span>(<span class="bu">len</span>(df_result_m.index)), </span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    [x.strftime(<span class="st">'%m.%Y'</span>) <span class="cf">for</span> x <span class="kw">in</span> df_result_m.index], </span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    rotation<span class="op">=</span><span class="dv">45</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA%20File%20Final%20V1_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="tweet-length" class="level2">
+<h2 class="anchored" data-anchor-id="tweet-length">Tweet length</h2>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co">#plot hist of tweet length</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>sns.histplot([<span class="bu">len</span>(s) <span class="cf">for</span> s <span class="kw">in</span> df_result.Text], bins<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Tweet Length'</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA%20File%20Final%20V1_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="tweets-by-hour-of-the-day" class="level2">
+<h2 class="anchored" data-anchor-id="tweets-by-hour-of-the-day">Tweets by hour of the day</h2>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>axs.set_xlabel(<span class="st">'Hour'</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>axs.set_ylabel(<span class="st">'number of tweets'</span>)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>axs.set_title(<span class="st">'Tweets by hour of the day'</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>df_result.groupby(df_result[<span class="st">"Datetime"</span>].dt.hour)[<span class="st">"Tweet Id"</span>].count().plot(kind<span class="op">=</span><span class="st">'bar'</span>, rot<span class="op">=</span><span class="dv">0</span>, ax<span class="op">=</span>axs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>&lt;AxesSubplot:title={'center':'Tweets by hour of the day'}, xlabel='Datetime', ylabel='number of tweets'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA%20File%20Final%20V1_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="analysis-on-location-field-1" class="level4">
+<h4 class="anchored" data-anchor-id="analysis-on-location-field-1">4. Analysis on “Location” field</h4>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df_result.Location.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>78637</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>temp<span class="op">=</span>df_result[<span class="st">'Location'</span>].value_counts()</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>temp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>San Francisco     8684
+India             8319
+Washington, DC    7991
+United States     7773
+New York, NY      5858
+Name: Location, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Filtering all User defined locations where tweets were more then 500</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>tempx<span class="op">=</span>temp[temp <span class="op">&gt;</span> <span class="dv">500</span>]</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Putting all this data in a dataframe tempx2</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co">#tempx2=pd.DataFrame(tempx)</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="co">#tempx2.to_csv('LocationFiletemp.csv')</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Reading the above created dataframe after making all the changes</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co">#tempx3=pd.read_csv('C:\\Users\\W0780808\\Desktop\\LocationFilex.csv')</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>tempx3<span class="op">=</span>pd.read_csv(<span class="st">'/Users/nikhiljoshi/Capstone Project/EDA Files/LocationFilex.csv'</span>)</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>tempx3.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Location</th>
+      <th>Count</th>
+      <th>Country</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>United States</td>
+      <td>12885</td>
+      <td>United States</td>
+      <td>No Info</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Washington, DC</td>
+      <td>9114</td>
+      <td>United States</td>
+      <td>Washington</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>San Francisco</td>
+      <td>8804</td>
+      <td>United States</td>
+      <td>San Francisco</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>India</td>
+      <td>8730</td>
+      <td>India</td>
+      <td>No Info</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>New York, NY</td>
+      <td>6914</td>
+      <td>United States</td>
+      <td>New York</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plotting the above Location information</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">11</span>,<span class="dv">4</span>))</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>ax<span class="op">=</span>sns.lineplot(x<span class="op">=</span><span class="st">'Country'</span>,y<span class="op">=</span><span class="st">"Count"</span>, data<span class="op">=</span>tempx3,palette<span class="op">=</span><span class="st">'Paired'</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Tweets from Countries'</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Count of Tweets'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>Text(0, 0.5, 'Count of Tweets')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA%20File%20Final%20V1_files/figure-html/cell-31-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<section id="from-the-above-plot-we-observe-that-united-states-is-the-primary-location-of-our-tweets" class="level5">
+<h5 class="anchored" data-anchor-id="from-the-above-plot-we-observe-that-united-states-is-the-primary-location-of-our-tweets">From the above plot, we observe that United States is the primary location of our tweets</h5>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">24</span>,<span class="dv">4</span>))</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>ax<span class="op">=</span>sns.barplot(x<span class="op">=</span><span class="st">'City'</span>,y<span class="op">=</span><span class="st">'Count'</span>, data<span class="op">=</span>tempx3,palette<span class="op">=</span><span class="st">'pastel'</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Tweets from Cities/States'</span>)</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Total Tweets'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>Text(0, 0.5, 'Total Tweets')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="EDA%20File%20Final%20V1_files/figure-html/cell-32-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="analyzing-place-column" class="level4">
+<h4 class="anchored" data-anchor-id="analyzing-place-column">Analyzing “Place” Column</h4>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df_result.Place.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>329100</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>temp2<span class="op">=</span>df_result[<span class="st">'Place'</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( temp2[temp2 <span class="op">&gt;</span> <span class="dv">100</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Coordinates(longitude=-77.119401, latitude=38.801826)      363
+Coordinates(longitude=-118.668404, latitude=33.704538)     344
+Coordinates(longitude=-74.026675, latitude=40.683935)      339
+Coordinates(longitude=72.74484, latitude=18.845343)        227
+Coordinates(longitude=76.84252, latitude=28.397657)        201
+Coordinates(longitude=-122.514926, latitude=37.708075)     191
+Coordinates(longitude=-95.823268, latitude=29.522325)      167
+Coordinates(longitude=-74.041878, latitude=40.570842)      158
+Coordinates(longitude=-73.962582, latitude=40.541722)      143
+Coordinates(longitude=72.946773, latitude=18.807586)       130
+Coordinates(longitude=-71.191421, latitude=42.227797)      129
+Coordinates(longitude=-79.639319, latitude=43.403221)      128
+Coordinates(longitude=-122.436232, latitude=47.4953154)    124
+Coordinates(longitude=-87.940033, latitude=41.644102)      117
+Coordinates(longitude=-75.280284, latitude=39.871811)      104
+Name: Place, dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df_result<span class="op">=</span>df_result.drop([<span class="st">'Place'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>df_result.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Datetime</th>
+      <th>Tweet Id</th>
+      <th>Text</th>
+      <th>Location</th>
+      <th>Retweet</th>
+      <th>Like</th>
+      <th>new_Hashtags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-05-30 23:49:53</td>
+      <td>1.530000e+18</td>
+      <td>Dance Events at #USAAF2022 #GenerationsOfPower...</td>
+      <td>San Francisco</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>usaaf2022 generationsofpower dance movement co...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2022-05-30 23:16:28</td>
+      <td>1.530000e+18</td>
+      <td>Streaming AAPI snack stream with @shotaro_VT i...</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>aapi vtuber envtuber vtuberuprising chocnut</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-05-30 23:05:53</td>
+      <td>1.530000e+18</td>
+      <td>#AAPI month was a great reminder that our stor...</td>
+      <td>san francisco</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>aapi</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-05-30 23:00:44</td>
+      <td>1.530000e+18</td>
+      <td>#AAPI panic moment: dinner time and weâre ne...</td>
+      <td>Richmond, VA</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>aapi</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-05-30 23:00:17</td>
+      <td>1.530000e+18</td>
+      <td>With #AAPI Heritage Month coming to an end che...</td>
+      <td>River Forest, IL</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>aapi</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>341055</th>
+      <td>2019-10-11 13:44:47</td>
+      <td>1.182653e+18</td>
+      <td>Every minute, a white politician in some US ci...</td>
+      <td>St Louis, MO</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>inequality racism racialwealthgap</td>
+    </tr>
+    <tr>
+      <th>341056</th>
+      <td>2019-10-11 13:44:19</td>
+      <td>1.182653e+18</td>
+      <td>Our special guest has arrived at the Emirates ...</td>
+      <td>United Kingdom</td>
+      <td>38.0</td>
+      <td>93.0</td>
+      <td>racism hatecrime</td>
+    </tr>
+    <tr>
+      <th>341057</th>
+      <td>2019-10-11 13:44:12</td>
+      <td>1.182653e+18</td>
+      <td>@dcpoll #Trump runs on a platform of #hate #ra...</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>trump hate racism greed lies america putinspuppet</td>
+    </tr>
+    <tr>
+      <th>341058</th>
+      <td>2019-10-11 13:43:42</td>
+      <td>1.182653e+18</td>
+      <td>“Victims vs. Perpetrators”- The Dehumanization...</td>
+      <td>Berlin, Germany</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>halle shooting antisemitism racism germany</td>
+    </tr>
+    <tr>
+      <th>341059</th>
+      <td>2019-10-11 13:42:31</td>
+      <td>1.182653e+18</td>
+      <td>Why Trump relies so much on racist stereotypes...</td>
+      <td>Tyler, TX</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>racism dumptrump</td>
+    </tr>
+  </tbody>
+</table>
+<p>341060 rows × 7 columns</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
