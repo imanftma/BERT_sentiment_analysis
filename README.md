@@ -1,4 +1,4 @@
-# Tweet sentimental analysis using BERT & Machine Learning Approaches
+# SENTIMENTAL ANALYSIS OF TWEETS FOR DETECTING HATE SPEECH-USING BERT & MACHINE LEARNING APPROACHES
 This project involves building & comparing 2 different approaches for sentiment analysis of tweets. Tweets are scraped using **snscrape** library for different hashtags.
 The 2 approaches are:
 1. Machine Learning Models (KNN,SVC, Random Forest, Decision Tree, Naive Bayes)</br>
